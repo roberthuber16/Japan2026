@@ -1,0 +1,360 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); }
+.wrap { padding: 1rem 0; }
+.header { margin-bottom: 1.5rem; }
+.header h2 { font-size: 18px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+.header p { font-size: 13px; color: var(--color-text-secondary); }
+.phase-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.tab { padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 500; cursor: pointer; border: 1px solid var(--color-border-primary); background: transparent; color: var(--color-text-secondary); transition: all .15s; }
+.tab.active { background: var(--color-text-primary); color: var(--color-background-primary); border-color: var(--color-text-primary); }
+.phase { display: none; }
+.phase.active { display: block; }
+.phase-title { font-size: 16px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+.phase-subtitle { font-size: 13px; color: var(--color-text-secondary); margin-bottom: 1.25rem; }
+.days { display: flex; flex-direction: column; gap: 10px; }
+.day { border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; }
+.day-header { display: flex; align-items: center; gap: 12px; padding: 12px 16px; cursor: pointer; background: var(--color-background-secondary); }
+.day-num { font-size: 11px; font-weight: 500; color: var(--color-text-tertiary); min-width: 48px; }
+.day-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); flex: 1; }
+.day-tag { font-size: 11px; padding: 2px 8px; border-radius: 10px; font-weight: 500; }
+.tag-food { background: #FAEEDA; color: #854F0B; }
+.tag-culture { background: #EEEDFE; color: #3C3489; }
+.tag-nature { background: #EAF3DE; color: #3B6D11; }
+.tag-art { background: #E1F5EE; color: #085041; }
+.tag-luxury { background: #FAECE7; color: #712B13; }
+.tag-anime { background: #FBEAF0; color: #72243E; }
+.day-body { padding: 12px 16px; display: none; border-top: 1px solid var(--color-border-tertiary); }
+.day-body.open { display: block; }
+.activity { display: flex; gap: 10px; margin-bottom: 10px; }
+.activity:last-child { margin-bottom: 0; }
+.activity-time { font-size: 11px; color: var(--color-text-tertiary); min-width: 52px; padding-top: 2px; }
+.activity-content { flex: 1; }
+.activity-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); }
+.activity-desc { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; line-height: 1.5; }
+.luxury-note { display: inline-block; margin-top: 4px; font-size: 11px; color: #993C1D; background: #FAECE7; padding: 2px 7px; border-radius: 8px; }
+.chevron { font-size: 12px; color: var(--color-text-tertiary); transition: transform .2s; }
+.chevron.open { transform: rotate(180deg); }
+.legend { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--color-border-tertiary); }
+.leg-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--color-text-secondary); }
+.leg-dot { width: 8px; height: 8px; border-radius: 50%; }
+</style>
+<div class="wrap">
+  <div class="header">
+    <h2>Japan — 3 weeks, luxury couple</h2>
+    <p>Oct 31 – Nov 21, 2026 · Peak autumn foliage season</p>
+  </div>
+
+  <div class="phase-tabs">
+    <button class="tab active" onclick="showPhase('tokyo')">Phase 1: Tokyo</button>
+    <button class="tab" onclick="showPhase('alps')">Phase 2: Alps & Kanazawa</button>
+    <button class="tab" onclick="showPhase('kyoto')">Phase 3: Kyoto</button>
+    <button class="tab" onclick="showPhase('west')">Phase 4: West + Islands</button>
+    <button class="tab" onclick="showPhase('return')">Phase 5: Tokyo Return</button>
+  </div>
+
+  <!-- PHASE 1: TOKYO -->
+  <div class="phase active" id="phase-tokyo">
+    <div class="phase-title">Phase 1 · Tokyo</div>
+    <div class="phase-subtitle">Days 1–7 · Oct 31 – Nov 6 · Base: Aman Tokyo or The Peninsula</div>
+    <div class="days">
+      <div class="day">
+        <div class="day-header" onclick="toggle(this)">
+          <span class="day-num">Day 1 · Oct 31</span>
+          <span class="day-title">Arrival & Akihabara night</span>
+          <span class="day-tag tag-anime">Anime</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="day-body">
+          <div class="activity"><span class="activity-time">Afternoon</span><div class="activity-content"><div class="activity-name">Check in & decompress</div><div class="activity-desc">Settle into your hotel. Aman Tokyo's rooms overlook the Imperial Palace gardens — a stunning first view of the city.</div><span class="luxury-note">Aman Tokyo · from ¥120,000/night</span></div></div>
+          <div class="activity"><span class="activity-time">Evening</span><div class="activity-content"><div class="activity-name">Akihabara Electric Town</div><div class="activity-desc">Ease in gently with a walk through neon-lit Akihabara — arcades, anime goods, retro game shops. Dinner at a standing sushi bar nearby.</div></div></div>
+        </div>
+      </div>
+      <div class="day">
+        <div class="day-header" onclick="toggle(this)">
+          <span class="day-num">Day 2 · Nov 1</span>
+          <span class="day-title">Shinjuku, Meiji & Harajuku</span>
+          <span class="day-tag tag-culture">Culture</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="day-body">
+          <div class="activity"><span class="activity-time">Morning</span><div class="activity-content"><div class="activity-name">Meiji Jingu Shrine</div><div class="activity-desc">Forested Shinto shrine in the heart of the city. Early morning is tranquil. The walk through the cedar forest sets a meditative tone.</div></div></div>
+          <div class="activity"><span class="activity-time">Midday</span><div class="activity-content"><div class="activity-name">Harajuku & Omotesando</div><div class="activity-desc">Takeshita Street for wild street fashion and crepes. Then the upscale Omotesando boulevard — Tokyo's answer to the Champs-Élysées.</div></div></div>
+          <div class="activity"><span class="activity-time">Evening</span><div class="activity-content"><div class="activity-name">Shinjuku izakaya crawl</div><div class="activity-desc">Golden Gai's tiny six-seat bars, each with its own personality. Book ahead at Nakamura for excellent yakitori in Omoide Yokocho (Memory Lane).</div><span class="luxury-note">Bar-hop budget ¥5,000–¥10,000/person</span></div></div>
+        </div>
+      </div>
+      <div class="day">
+        <div class="day-header" onclick="toggle(this)">
+          <span class="day-num">Day 3 · Nov 2</span>
+          <span class="day-title">TeamLab & Shibuya</span>
+          <span class="day-tag tag-art">Art & Design</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="day-body">
+          <div class="activity"><span class="activity-time">Morning</span><div class="activity-content"><div class="activity-name">TeamLab Planets, Toyosu</div><div class="activity-desc">Immersive digital art installation — wade through water rooms, walk through mirrored infinity spaces. Book first-entry tickets in advance.</div><span class="luxury-note">¥3,200/person · book ahead</span></div></div>
+          <div class="activity"><span class="activity-time">Afternoon</span><div class="activity-content"><div class="activity-name">Shibuya Crossing & Sky</div><div class="activity-desc">The famous scramble crossing at street level, then up to Shibuya Sky observation deck for the bird's-eye view of controlled chaos.</div></div></div>
+          <div class="activity"><span class="activity-time">Evening</span><div class="activity-content"><div class="activity-name">Omakase dinner</div><div class="activity-desc">Reserve at Saito or Sushi Sho for a classic high-end omakase. These seats book out months ahead — arrange before you travel.</div><span class="luxury-note">¥40,000–¥80,000/person</span></div></div>
+        </div>
+      </div>
+      <div class="day">
+        <div class="day-header" onclick="toggle(this)">
+          <span class="day-num">Day 4 · Nov 3</span>
+          <span class="day-title">Nikko day trip</span>
+          <span class="day-tag tag-culture">Temples</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="day-body">
+          <div class="activity"><span class="activity-time">Early AM</span><div class="activity-content"><div class="activity-name">Shinkansen to Nikko</div><div class="activity-desc">2 hrs north of Tokyo. Toshogu Shrine complex — elaborately gilded mausoleums set in cedar forest with autumn foliage at peak intensity in early November.</div></div></div>
+          <div class="activity"><span class="activity-time">Afternoon</span><div class="activity-content"><div class="activity-name">Kegon Falls & Lake Chuzenji</div><div class="activity-desc">Stunning 97m waterfall with the autumn-coloured hills behind it. One of Japan's most photogenic scenes in November.</div></div></div>
+          <div class="activity"><span class="activity-time">Evening</span><div class="activity-content"><div class="activity-name">Return to Tokyo</div><div class="activity-desc">Late dinner at a neighborhood ramen-ya near your hotel — a good reset after a big day.</div></div></div>
+        </div>
+      </div>
+      <div class="day">
+        <div class="day-header" onclick="toggle(this)">
+          <span class="day-num">Days 5–6 · Nov 4–5</span>
+          <span class="day-title">Deep Tokyo: art, whisky & design</span>
+          <span class="day-tag tag-art">Art & Design</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="day-body">
+          <div class="activity"><span class="activity-time">Day 5</span><div class="activity-content"><div class="activity-name">Mori Art Museum & Roppongi</div><div class="activity-desc">Contemporary art at altitude on the 53rd floor. Roppongi Hills has excellent galleries — pair with the National Art Center nearby.</div></div></div>
+          <div class="activity"><span class="activity-time">Day 5 Eve</span><div class="activity-content"><div class="activity-name">Whisky bar in Ginza</div><div class="activity-desc">Bar High Five or The SG Club are world-class bartending institutions. Rare Japanese whisky (Karuizawa, Hanyu Ichiro's) poured by masters.</div><span class="luxury-note">¥3,000–¥15,000/dram</span></div></div>
+          <div class="activity"><span class="activity-time">Day 6</span><div class="activity-content"><div class="activity-name">Yanaka & Shimokitazawa</div><div class="activity-desc">Yanaka is old Tokyo — narrow lanes, temples, cat cafes, pottery shops. Shimokitazawa for vinyl record shops, vintage clothing, and live jazz.</div></div></div>
+          <div class="activity"><span class="activity-time">Day 6 Eve</span><div class="activity-content"><div class="activity-name">Tsukiji Outer Market dinner</div><div class="activity-desc">The outer market (still operating) has some of Tokyo's best casual seafood. Tamagoyaki, fresh uni, grilled scallops.</div></div></div>
+        </div>
+      </div>
+      <div class="day">
+        <div class="day-header" onclick="toggle(this)">
+          <span class="day-num">Day 7 · Nov 6</span>
+          <span class="day-title">Akihabara deep dive & prep</span>
+          <span class="day-tag tag-anime">Anime</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="day-body">
+          <div class="activity"><span class="activity-time">All day</span><div class="activity-content"><div class="activity-name">Akihabara proper</div><div class="activity-desc">Yodobashi Camera, Mandarake Complex, Super Potato retro games, Radio Kaikan for figures and doujinshi. A full day disappears here easily.</div></div></div>
+          <div class="activity"><span class="activity-time">Evening</span><div class="activity-content"><div class="activity-name">Pack for Alps leg</div><div class="activity-desc">Tomorrow you leave for the Japan Alps. Send luggage ahead via takkyubin courier service — travel light on the train.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 2: ALPS & KANAZAWA -->
+  <div class="phase" id="phase-alps">
+    <div class="phase-title">Phase 2 · Japan Alps & Kanazawa</div>
+    <div class="phase-subtitle">Days 8–11 · Nov 7–10 · Hakone → Matsumoto → Kanazawa</div>
+    <div class="days">
+      <div class="day">
+        <div class="day-header" onclick="toggle(this)">
+          <span class="day-num">Day 8 · Nov 7</span>
+          <span class="day-title">Hakone — Mt. Fuji views</span>
+          <span class="day-tag tag-nature">Nature</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="day-body">
+          <div class="activity"><span class="activity-time">Morning</span><div class="activity-content"><div class="activity-name">Romancecar train to Hakone</div><div class="activity-desc">The iconic Odakyu Romancecar from Shinjuku — panoramic front windows, seats face the view. Mt. Fuji often visible on clear November mornings.</div></div></div>
+          <div class="activity"><span class="activity-time">Afternoon</span><div class="activity-content"><div class="activity-name">Hakone Open Air Museum</div><div class="activity-desc">Sculptures set against mountain scenery — a Picasso pavilion, Rodin bronzes, a full Henry Moore. Foliage backdrop in November is stunning.</div></div></div>
+          <div class="activity"><span class="activity-time">Evening</span><div class="activity-content"><div class="activity-name">Kaiseki dinner & onsen</div><div class="activity-desc">Check into Gora Kadan or Hoshino Resorts KAI Hakone for a multi-course kaiseki dinner and private outdoor onsen with mountain views.</div><span class="luxury-note">Gora Kadan · from ¥80,000/night w/meals</span></div></div>
+        </div>
+      </div>
+      <div class="day">
+        <div class="day-header" onclick="toggle(this)">
+          <span class="day-num">Day 9 · Nov 8</span>
+          <span class="day-title">Hakone Loop & Matsumoto</span>
+          <span class="day-tag tag-nature">Nature & History</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="day-body">
+          <div class="activity"><span class="activity-time">Morning</span><div class="activity-content"><div class="activity-name">Hakone Loop — ropeway & lake</div><div class="activity-desc">Cable car over volcanic Owakudani steam vents, then Lake Ashi cruise with Fuji reflection (weather permitting). Buy the black sulfur egg.</div></div></div>
+          <div class="activity"><span class="activity-time">Afternoon</span><div class="activity-content"><div class="activity-name">Train to Matsumoto</div><div class="activity-desc">Transfer toward the Alps. Matsumoto Castle — "Crow Castle" — is Japan's finest surviving original castle, jet black against the Northern Alps.</div></div></div>
+          <div class="activity"><span class="activity-time">Evening</span><div class="activity-content"><div class="activity-name">Nawate street & sake bar</div><div class="activity-desc">Frog-themed Nawate-dori is a charming old shopping street. Excellent local Nagano sake in the evening at a small neighborhood bar.</div></div></div>
+        </div>
+      </div>
+      <div class="day">
+        <div class="day-header" onclick="toggle(this)">
+          <span class="day-num">Day 10 · Nov 9</span>
+          <span class="day-title">Shirakawa-go UNESCO Village</span>
+          <span class="day-tag tag-culture">Temples & Culture</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="day-body">
+          <div class="activity"><span class="activity-time">All day</span><div class="activity-content"><div class="activity-name">Shirakawa-go gassho farmhouses</div><div class="activity-desc">UNESCO-listed mountain village with steep-thatched farmhouses. In early November the surrounding hills are peak autumn colour. Visit Wada House inside.</div></div></div>
+          <div class="activity"><span class="activity-time">Evening</span><div class="activity-content"><div class="activity-name">Arrive Kanazawa</div><div class="activity-desc">Check into Hotel Kanazawa or Hyatt Centric Kanazawa. Known as "little Kyoto" — geisha districts, samurai neighborhoods, incredible food scene.</div></div></div>
+        </div>
+      </div>
+      <div class="day">
+        <div class="day-header" onclick="toggle(this)">
+          <span class="day-num">Day 11 · Nov 10</span>
+          <span class="day-title">Kanazawa — Kenroku-en & Higashi Chaya</span>
+          <span class="day-tag tag-culture">Culture</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="day-body">
+          <div class="activity"><span class="activity-time">Morning</span><div class="activity-content"><div class="activity-name">Kenroku-en Garden</div><div class="activity-desc">Considered one of Japan's three great gardens. In November the iconic yukitsuri (rope-supported) pine trees are installed for winter — a beautiful and unique sight.</div></div></div>
+          <div class="activity"><span class="activity-time">Afternoon</span><div class="activity-content"><div class="activity-name">Higashi Chaya geisha district</div><div class="activity-desc">The best-preserved geisha district outside Kyoto. Walk the stone-paved lanes, tour a restored ochaya teahouse. Superb gold leaf craft shops.</div></div></div>
+          <div class="activity"><span class="activity-time">Evening</span><div class="activity-content"><div class="activity-name">Omicho Market & seafood dinner</div><div class="activity-desc">Kanazawa seafood is world-class — red snow crab, nodoguro (blackthroat sea perch) and fatty yellow sea urchin are the must-orders.</div><span class="luxury-note">Splurge on nodoguro — worth every yen</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 3: KYOTO -->
+  <div class="phase" id="phase-kyoto">
+    <div class="phase-title">Phase 3 · Kyoto</div>
+    <div class="phase-subtitle">Days 12–16 · Nov 11–15 · Base: Tawaraya Ryokan or Suiran</div>
+    <div class="days">
+      <div class="day">
+        <div class="day-header" onclick="toggle(this)">
+          <span class="day-num">Day 12 · Nov 11</span>
+          <span class="day-title">Arrive Kyoto — Arashiyama</span>
+          <span class="day-tag tag-nature">Nature</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="day-body">
+          <div class="activity"><span class="activity-time">Morning</span><div class="activity-content"><div class="activity-name">Shinkansen Kanazawa → Kyoto</div><div class="activity-desc">Under an hour on the Thunderbird / Shinkansen transfer. Arrive, check in at Tawaraya — the most celebrated ryokan in Japan, guests include celebrities and heads of state.</div><span class="luxury-note">Tawaraya · from ¥120,000/night w/meals</span></div></div>
+          <div class="activity"><span class="activity-time">Afternoon</span><div class="activity-content"><div class="activity-name">Arashiyama bamboo grove</div><div class="activity-desc">The famous bamboo path is quieter in the afternoon. Tenryu-ji garden next door has spectacular maple foliage in November. Walk the Togetsukyo bridge over the Oi River.</div></div></div>
+          <div class="activity"><span class="activity-time">Evening</span><div class="activity-content"><div class="activity-name">Kaiseki at the ryokan</div><div class="activity-desc">Your first multi-course kaiseki dinner served in your room. Seasonal November ingredients: matsutake mushrooms, Kyoto vegetables (kyo-yasai), fresh river fish.</div></div></div>
+        </div>
+      </div>
+      <div class="day">
+        <div class="day-header" onclick="toggle(this)">
+          <span class="day-num">Day 13 · Nov 12</span>
+          <span class="day-title">Fushimi Inari & Gion at dusk</span>
+          <span class="day-tag tag-culture">Temples</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="day-body">
+          <div class="activity"><span class="activity-time">Dawn</span><div class="activity-content"><div class="activity-name">Fushimi Inari — sunrise hike</div><div class="activity-desc">Arrive at 6am. The endless vermillion torii gates with autumn leaves and morning mist, nearly deserted — one of Japan's most magical experiences.</div></div></div>
+          <div class="activity"><span class="activity-time">Afternoon</span><div class="activity-content"><div class="activity-name">Philosopher's Path</div><div class="activity-desc">The canal-side stone path lined with maples in full autumn colour. Links Nanzen-ji, Eikan-do, and Ginkaku-ji — each exceptional in November.</div></div></div>
+          <div class="activity"><span class="activity-time">Dusk</span><div class="activity-content"><div class="activity-name">Gion at twilight</div><div class="activity-desc">Walk the Hanamikoji and Shirakawa canal streets in fading light. If lucky, spot a maiko (apprentice geisha) heading to an evening engagement.</div></div></div>
+        </div>
+      </div>
+      <div class="day">
+        <div class="day-header" onclick="toggle(this)">
+          <span class="day-num">Day 14 · Nov 13</span>
+          <span class="day-title">Nara day trip</span>
+          <span class="day-tag tag-nature">Nature & Temples</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="day-body">
+          <div class="activity"><span class="activity-time">Morning</span><div class="activity-content"><div class="activity-name">Todai-ji Great Buddha</div><div class="activity-desc">45 min from Kyoto. The Great Buddha Hall is the world's largest wooden structure. Free-roaming deer bow for crackers throughout the park.</div></div></div>
+          <div class="activity"><span class="activity-time">Afternoon</span><div class="activity-content"><div class="activity-name">Kasuga Taisha & Isuien Garden</div><div class="activity-desc">Kasuga's lantern-lined approach is enchanting. Isuien is a lesser-known gem — a strolling garden framing Todai-ji's roof in its composition.</div></div></div>
+          <div class="activity"><span class="activity-time">Evening</span><div class="activity-content"><div class="activity-name">Return & sake tasting</div><div class="activity-desc">Back in Kyoto — sake tasting at Fushimi, Japan's second-largest sake brewing district, just south of the city.</div></div></div>
+        </div>
+      </div>
+      <div class="day">
+        <div class="day-header" onclick="toggle(this)">
+          <span class="day-num">Days 15–16 · Nov 14–15</span>
+          <span class="day-title">Kinkaku-ji, Kodo & tea ceremony</span>
+          <span class="day-tag tag-culture">Culture</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="day-body">
+          <div class="activity"><span class="activity-time">Day 15 AM</span><div class="activity-content"><div class="activity-name">Kinkaku-ji (Golden Pavilion)</div><div class="activity-desc">Go early before tour buses arrive. The gold-leaf pavilion reflected in the mirror pond with autumn maples is genuinely breathtaking.</div></div></div>
+          <div class="activity"><span class="activity-time">Day 15 PM</span><div class="activity-content"><div class="activity-name">Private tea ceremony</div><div class="activity-desc">Book a private ura-senke school tea ceremony. Far more intimate and authentic than tourist versions — involves a full multi-course wagashi sweet pairing.</div><span class="luxury-note">~¥20,000/person private experience</span></div></div>
+          <div class="activity"><span class="activity-time">Day 16</span><div class="activity-content"><div class="activity-name">Kodo incense ceremony & Nishiki Market</div><div class="activity-desc">A Kodo (way of incense) session is one of Japan's three classical arts, rarely experienced by tourists. Then Nishiki Market — "Kyoto's Kitchen" — for pickles, tofu, and street snacks.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 4: WEST + ISLANDS -->
+  <div class="phase" id="phase-west">
+    <div class="phase-title">Phase 4 · Osaka, Hiroshima & Naoshima</div>
+    <div class="phase-subtitle">Days 17–19 · Nov 16–18</div>
+    <div class="days">
+      <div class="day">
+        <div class="day-header" onclick="toggle(this)">
+          <span class="day-num">Day 17 · Nov 16</span>
+          <span class="day-title">Osaka — eat everything</span>
+          <span class="day-tag tag-food">Food</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="day-body">
+          <div class="activity"><span class="activity-time">Morning</span><div class="activity-content"><div class="activity-name">Dotonbori & Kuromon Market</div><div class="activity-desc">Osaka's food culture is its identity. Kuromon Ichiba market for fresh crab and pufferfish. Dotonbori for takoyaki, kushikatsu, and the glowing Glico man.</div></div></div>
+          <div class="activity"><span class="activity-time">Evening</span><div class="activity-content"><div class="activity-name">Hozenji Yokocho & sake bar</div><div class="activity-desc">Narrow moss-walled alley with atmospheric restaurants. Fugu (pufferfish) dinner at a licensed restaurant — a bucket-list Japanese meal.</div><span class="luxury-note">Fugu course ¥15,000–¥30,000/person</span></div></div>
+        </div>
+      </div>
+      <div class="day">
+        <div class="day-header" onclick="toggle(this)">
+          <span class="day-num">Day 18 · Nov 17</span>
+          <span class="day-title">Hiroshima & Miyajima</span>
+          <span class="day-tag tag-culture">History</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="day-body">
+          <div class="activity"><span class="activity-time">Morning</span><div class="activity-content"><div class="activity-name">Peace Memorial Park & Museum</div><div class="activity-desc">Allow 2–3 hours. The museum is one of the most affecting in the world. The A-Bomb Dome ruin alongside the Motoyasu River remains deeply moving.</div></div></div>
+          <div class="activity"><span class="activity-time">Afternoon</span><div class="activity-content"><div class="activity-name">Miyajima Island & floating torii</div><div class="activity-desc">A 10-minute ferry. Itsukushima Shrine's torii gate appears to float at high tide. November foliage on Mt. Misen is superb. Take the ropeway up.</div></div></div>
+          <div class="activity"><span class="activity-time">Evening</span><div class="activity-content"><div class="activity-name">Okonomiyaki dinner</div><div class="activity-desc">Hiroshima-style okonomiyaki (layered, not mixed) is completely different from Osaka style — a signature local dish not to miss.</div></div></div>
+        </div>
+      </div>
+      <div class="day">
+        <div class="day-header" onclick="toggle(this)">
+          <span class="day-num">Day 19 · Nov 18</span>
+          <span class="day-title">Naoshima Art Island</span>
+          <span class="day-tag tag-art">Art & Design</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="day-body">
+          <div class="activity"><span class="activity-time">All day</span><div class="activity-content"><div class="activity-name">Benesse Art Site</div><div class="activity-desc">Naoshima is one of the world's great art experiences. Chichu Art Museum (Monet Water Lilies in a purpose-built underground space), Lee Ufan Museum, and Art House Project in the old village.</div><span class="luxury-note">Stay at Benesse House overnight if available — ¥80,000+</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 5: TOKYO RETURN -->
+  <div class="phase" id="phase-return">
+    <div class="phase-title">Phase 5 · Tokyo Return</div>
+    <div class="phase-subtitle">Days 20–22 · Nov 19–21 · Final stretch + departure</div>
+    <div class="days">
+      <div class="day">
+        <div class="day-header" onclick="toggle(this)">
+          <span class="day-num">Days 20–21 · Nov 19–20</span>
+          <span class="day-title">Tokyo finale — last meals & shopping</span>
+          <span class="day-tag tag-food">Food</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="day-body">
+          <div class="activity"><span class="activity-time">Day 20</span><div class="activity-content"><div class="activity-name">Toyosu Market tuna auction</div><div class="activity-desc">Apply in advance for the early morning tuna auction lottery (5am). Even without winning, watching from the gallery is spectacular. Sushi breakfast immediately after is mandatory.</div><span class="luxury-note">Daiwa Sushi in the market building — arrive by 5:30am</span></div></div>
+          <div class="activity"><span class="activity-time">Day 20 PM</span><div class="activity-content"><div class="activity-name">Ginza shopping</div><div class="activity-desc">Itoya (10-floor stationery paradise), Uniqlo flagship, luxury fashion. Dover Street Market Tokyo for rare streetwear and art objects.</div></div></div>
+          <div class="activity"><span class="activity-time">Day 21</span><div class="activity-content"><div class="activity-name">Odaiba & teamLab Borderless</div><div class="activity-desc">TeamLab Borderless reopened in a new Azabudai Hills location — different from Planets, more expansive wandering experience. Evening: final splurge dinner at Joël Robuchon Tokyo.</div><span class="luxury-note">Robuchon Tokyo · ¥50,000+/person</span></div></div>
+        </div>
+      </div>
+      <div class="day">
+        <div class="day-header" onclick="toggle(this)">
+          <span class="day-num">Day 22 · Nov 21</span>
+          <span class="day-title">Departure</span>
+          <span class="day-tag tag-luxury">Luxury</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="day-body">
+          <div class="activity"><span class="activity-time">Morning</span><div class="activity-content"><div class="activity-name">Narita or Haneda transfer</div><div class="activity-desc">Take the Narita Express or Airport Limousine Bus. Allow 2.5 hours before departure. The JAL / ANA first class lounges at Haneda are exceptional — worth arriving early.</div><span class="luxury-note">Haneda closer to central Tokyo — check your departure terminal</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="leg-item"><div class="leg-dot" style="background:#EF9F27"></div>Food & sake</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#7F77DD"></div>Temples & history</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#639922"></div>Nature & hiking</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#1D9E75"></div>Art & design</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#D85A30"></div>Luxury</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#D4537E"></div>Anime & pop culture</div>
+  </div>
+</div>
+
+<script>
+function showPhase(id) {
+  document.querySelectorAll('.phase').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('phase-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+function toggle(header) {
+  const body = header.nextElementSibling;
+  const chevron = header.querySelector('.chevron');
+  body.classList.toggle('open');
+  chevron.classList.toggle('open');
+}
+</script>
