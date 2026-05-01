@@ -9,22 +9,25 @@
     :root {
       color-scheme: light;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: #2e3240;
-      background: #eef2f7;
-      --bg: #f7f6f3;
-      --surface: #ffffff;
-      --surface-strong: #f4f1ec;
-      --muted: #6f7486;
-      --accent: #305a9d;
-      --accent-soft: #e7eff8;
-      --border: rgba(92, 96, 115, 0.12);
-      --shadow: 0 28px 80px rgba(89, 107, 145, 0.08);
+      color: #3b2f24;
+      background: #fbf1e9;
+      --bg: #f7e6da;
+      --surface: #fff7ef;
+      --surface-strong: #f2dfcf;
+      --muted: #7b675a;
+      --accent: #b56a3a;
+      --accent-soft: rgba(245, 214, 179, 0.75);
+      --border: rgba(181, 106, 58, 0.14);
+      --shadow: 0 28px 80px rgba(141, 96, 69, 0.14);
     }
     * { box-sizing: border-box; }
-    html { min-height: 100%; background: radial-gradient(circle at top, rgba(115, 143, 183, 0.14), transparent 42%), linear-gradient(180deg, #fdf9f4 0%, #eef2f7 100%); }
-    body { margin: 0; min-height: 100vh; background: transparent; color: inherit; }
+    html { min-height: 100%; background: radial-gradient(circle at top, rgba(206, 132, 82, 0.16), transparent 42%), linear-gradient(180deg, #fff5ed 0%, #fbefe4 100%); }
+    body { margin: 0; min-height: 100vh; background: transparent; color: inherit; transition: background .25s ease, color .25s ease; }
     button { font: inherit; }
     .page-shell { max-width: 1100px; margin: 0 auto; padding: 26px 24px 42px; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 32px; padding: 18px 22px; border-radius: 28px; background: var(--surface-strong); border: 1px solid var(--border); box-shadow: var(--shadow); }
+    .brand { font-size: 0.95rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+    .topbar-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
     .hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr); gap: 28px; align-items: center; margin-bottom: 34px; }
     .hero-panel { background: rgba(255,255,255,0.88); border: 1px solid rgba(255,255,255,0.8); border-radius: 32px; backdrop-filter: blur(20px); box-shadow: var(--shadow); padding: 34px; }
     .eyebrow { display: inline-flex; margin-bottom: 12px; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #bf6f26; }
@@ -36,10 +39,10 @@
     .meta-card span { color: var(--muted); font-size: 0.95rem; line-height: 1.6; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
     .action-btn, .action-link { border-radius: 14px; padding: 14px 20px; text-decoration: none; transition: transform .18s ease, box-shadow .18s ease, background .18s ease; }
-    .action-btn { border: none; background: linear-gradient(135deg, #3c74c8, #6aabf2); color: #fff; cursor: pointer; box-shadow: 0 18px 40px rgba(60, 116, 200, 0.22); }
+    .action-btn { border: none; background: linear-gradient(135deg, #bb7d45, #f3c196); color: #4a2f1b; cursor: pointer; box-shadow: 0 18px 40px rgba(152, 92, 56, 0.2); }
     .action-btn:hover { transform: translateY(-1px); }
-    .action-link { display: inline-flex; align-items: center; color: #305a9d; background: rgba(48, 90, 157, 0.08); }
-    .hero-image { min-height: 340px; border-radius: 32px; background: linear-gradient(180deg, rgba(48,90,157,0.16), rgba(254,242,226,0.34)), url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80') center/cover no-repeat; position: relative; overflow: hidden; }
+    .action-link { display: inline-flex; align-items: center; color: #a45f36; background: rgba(181, 106, 58, 0.12); }
+    .hero-image { min-height: 340px; border-radius: 32px; background: linear-gradient(180deg, rgba(196,118,58,0.14), rgba(255,244,226,0.34)), url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80') center/cover no-repeat; position: relative; overflow: hidden; }
     .hero-image::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.85), transparent 35%); }
     .hero-image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.72) 45%, rgba(255,255,255,0.08)); }
     .share-notice { margin-top: 10px; font-size: 0.96rem; color: #5d6278; }
@@ -48,15 +51,15 @@
       white-space: nowrap;
     }
     .tab:hover { transform: translateY(-1px); }
-    .tab.active { background: #305a9d; color: #fff; box-shadow: 0 12px 30px rgba(48,90,157,0.16); }
+    .tab.active { background: #b56a3a; color: #fff; box-shadow: 0 12px 30px rgba(181,106,58,0.16); }
     .phase { display: none; }
     .phase.active { display: block; }
     .phase-title { margin: 0 0 6px; font-size: 1.05rem; letter-spacing: -0.01em; color: #1d2440; }
     .phase-subtitle { margin: 0 0 22px; font-size: 0.97rem; color: #5a627a; }
     .days { display: grid; gap: 20px; }
     .day { background: var(--surface); border: 1px solid var(--border); border-radius: 26px; overflow: hidden; box-shadow: 0 16px 40px rgba(85, 98, 125, 0.08); }
-    .day-header { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px; padding: 18px 22px; cursor: pointer; background: linear-gradient(90deg, rgba(255,255,255,0.92), rgba(243,242,239,0.96)); }
-    .day-header:hover { background: #f8f7f3; }
+    .day-header { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px; padding: 18px 22px; cursor: pointer; background: linear-gradient(90deg, rgba(255,251,248,0.92), rgba(249,239,229,0.96)); }
+    .day-header:hover { background: #f6ede5; }
     .day-num { font-size: 0.82rem; font-weight: 700; color: #6d748a; white-space: nowrap; }
     .day-title { font-size: 1rem; font-weight: 700; color: #242a3c; }
     .day-tag { white-space: nowrap; font-size: 0.78rem; font-weight: 700; padding: 6px 10px; border-radius: 999px; }
@@ -96,6 +99,12 @@
 </head>
 <body>
   <div class="page-shell">
+    <div class="topbar">
+      <div class="brand">Japan 2026</div>
+      <div class="topbar-actions">
+        <a href="calendar.html" class="action-link">Events calendar</a>
+      </div>
+    </div>
     <section class="hero">
       <div class="hero-panel">
         <div class="eyebrow">Autumn Japan plan</div>
